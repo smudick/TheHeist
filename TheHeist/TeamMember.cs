@@ -20,11 +20,26 @@ namespace TheHeist
 
         public void CreateTeammate(string name)
         {
-
             Console.Write($"Enter {name}'s skill level: ");
+            try
+            {
             SkillLevel = Math.Round(Convert.ToDouble(Console.ReadLine()));
+            }
+            catch (FormatException)
+            {
+                Console.Write("Please enter the skill level as a number: ");
+                SkillLevel = Math.Round(Convert.ToDouble(Console.ReadLine()));
+            }
             Console.Write($"Enter {name}'s courage level as a decimal between 0 and 2: ");
+            try
+            {
             CourageFactor = Convert.ToDouble(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.Write("Please enter the Courage level as a number between 0 and 2: ");
+                CourageFactor = Convert.ToDouble(Console.ReadLine());
+            }
             if (CourageFactor < 0 )
             {
                 CourageFactor = 0;
